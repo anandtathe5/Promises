@@ -19,7 +19,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
       overflow: hidden;
       background: url('https://cdn.pixabay.com/photo/2016/11/29/07/07/blood-1867619_1280.jpg') no-repeat center center fixed;
       background-size: cover;
@@ -35,6 +35,7 @@
       position: relative;
       box-shadow: 0px 0px 50px 10px #ff1a1a;
       animation: flicker 1.5s infinite alternate;
+      z-index: 2;
     }
 
     h1 {
@@ -55,10 +56,16 @@
       animation: blood-drip 5s infinite alternate;
     }
 
+    .goal:before {
+      content: "☠ ";
+      color: #ff3333;
+      text-shadow: 2px 2px 10px black;
+    }
+
     .media-container {
       margin-top: 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
       justify-items: center;
     }
@@ -98,16 +105,6 @@
 
       .goal {
         font-size: 0.9rem;
-      }
-
-      /* Ensure media elements adjust for smaller screens */
-      .media-container {
-        grid-template-columns: 1fr; /* Single column on small devices */
-      }
-
-      .media-container img, .media-container video {
-        width: 100%;
-        height: auto; /* Ensure images don't stretch */
       }
     }
 
@@ -164,14 +161,14 @@
 
     <!-- Image and video container -->
     <div class="media-container">
-      <img src="bhagat singh.jpeg" alt="Bhagat Singh">
+      <img src="bs.jpeg" alt="Bhagat Singh">
       <img src="focus.jpeg" alt="Focus">
       <video controls>
         <source src="pagal.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <img src="pawar saheb.jpeg" alt="Pawar Saheb">
-      <img src="puting if.gif" alt="Puting GIF">
+      <img src="p.jpeg" alt="Pawar Saheb">
+      <img src="putin .gif" alt="Puting GIF">
       <img src="th.jpeg" alt="TH">
     </div>
   </div>
@@ -194,5 +191,4 @@
     };
   </script>
 
-</body>
-</html>
+</body>make changes so that i can see all content images and videoa after deploying  anyhow 
