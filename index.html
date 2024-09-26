@@ -19,7 +19,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
       background: url('https://cdn.pixabay.com/photo/2016/11/29/07/07/blood-1867619_1280.jpg') no-repeat center center fixed;
       background-size: cover;
@@ -35,7 +35,6 @@
       position: relative;
       box-shadow: 0px 0px 50px 10px #ff1a1a;
       animation: flicker 1.5s infinite alternate;
-      z-index: 2;
     }
 
     h1 {
@@ -56,16 +55,10 @@
       animation: blood-drip 5s infinite alternate;
     }
 
-    .goal:before {
-      content: "☠ ";
-      color: #ff3333;
-      text-shadow: 2px 2px 10px black;
-    }
-
     .media-container {
       margin-top: 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       gap: 20px;
       justify-items: center;
     }
@@ -105,6 +98,16 @@
 
       .goal {
         font-size: 0.9rem;
+      }
+
+      /* Ensure media elements adjust for smaller screens */
+      .media-container {
+        grid-template-columns: 1fr; /* Single column on small devices */
+      }
+
+      .media-container img, .media-container video {
+        width: 100%;
+        height: auto; /* Ensure images don't stretch */
       }
     }
 
