@@ -16,6 +16,7 @@
       color: #fff;
       font-family: 'Creepster', sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -61,49 +62,25 @@
       text-shadow: 2px 2px 10px black;
     }
 
-    /* Adding a dangerous horror character */
-    .horror-character {
-      position: absolute;
-      width: 100px;
-      height: 200px;
-      background: url('https://cdn.pixabay.com/photo/2019/06/29/17/24/horror-4308975_1280.png') no-repeat;
-      background-size: contain;
-      top: 10px;
-      left: 10px;
-      animation: character-float 5s ease-in-out infinite alternate;
-      z-index: 1;
+    .media-container {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
     }
 
-    /* Knife Animation */
-    .knife {
-      position: absolute;
-      top: -60px;
-      right: 60px;
-      width: 100px;
-      height: 200px; /* Increase height */
-      animation: knife-drop 6s infinite alternate;
-      z-index: 3;
-    }
-
-    /* More knife appearances across the page */
-    .knife-left {
-      position: absolute;
-      top: 200px;
-      left: 100px;
-      width: 80px;
-      height: 160px; /* Increase height */
-      transform: rotate(-45deg);
-      animation: knife-float-left 8s infinite alternate;
-    }
-
-    .blood {
-      position: absolute;
-      top: -150px; /* Start from the top */
+    .media-container img, .media-container video {
       width: 100%;
-      height: 150px;
-      background: radial-gradient(circle, crimson, darkred);
-      animation: blood-flow 3s infinite;
-      z-index: 1;
+      height: auto;
+      border-radius: 15px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0px 0px 20px 5px crimson;
+    }
+
+    .media-container img:hover, .media-container video:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 50px 10px crimson;
     }
 
     /* Responsive adjustments */
@@ -116,19 +93,8 @@
         font-size: 1rem;
       }
 
-      .knife, .knife-left {
-        width: 50px;
-        height: 100px; /* Adjust height for responsiveness */
-      }
-
-      .horror-character {
-        width: 70px;
-        height: 140px;
-      }
-
-      .container {
-        max-width: 90%;
-        padding: 20px;
+      .media-container img, .media-container video {
+        width: 100%;
       }
     }
 
@@ -140,18 +106,9 @@
       .goal {
         font-size: 0.9rem;
       }
-
-      .knife, .knife-left {
-        width: 40px;
-        height: 80px; /* Adjust height for responsiveness */
-      }
-
-      .horror-character {
-        width: 50px;
-        height: 100px;
-      }
     }
 
+    /* Animations */
     @keyframes blood-drip {
       0% {
         color: #ff6666;
@@ -181,66 +138,13 @@
       }
     }
 
-    @keyframes knife-drop {
-      0% {
-        top: -60px;
-        right: 10px;
-        transform: rotate(45deg);
-      }
-      50% {
-        top: 150px;
-        right: 50px;
-        transform: rotate(90deg);
-      }
-      100% {
-        top: -60px;
-        right: 10px;
-        transform: rotate(45deg);
-      }
-    }
-
-    @keyframes knife-float-left {
-      0% {
-        top: 200px;
-        left: -60px;
-      }
-      50% {
-        top: 100px;
-        left: 20px;
-      }
-      100% {
-        top: 200px;
-        left: -60px;
-      }
-    }
-
-    @keyframes blood-flow {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(20px);
-      }
-    }
-
-    @keyframes character-float {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(20px);
-      }
-    }
-
   </style>
 
   <!-- Link to Google Fonts for Creepster -->
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Horror Character with Knife -->
-  <div class="horror-character"></div>
-  
+
   <div class="container">
     <h1>Deadly Promises</h1>
     
@@ -255,28 +159,37 @@
     <p class="goal">I Am Becoming the Person I Was Meant to Be</p>
     <p class="goal">Success is My Only Destination</p>
 
-    <!-- Knife Animations -->
-  
-    <audio id="background-audio" loop>
-        <source src="Kantara - kantara BGM.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+    <!-- Image and video container -->
+    <div class="media-container">
+      <img src="bhagat singh.jpeg" alt="Bhagat Singh">
+      <img src="focus.jpeg" alt="Focus">
+      <video controls>
+        <source src="pagal.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <img src="pawar saheb.jpeg" alt="Pawar Saheb">
+      <img src="puting if.gif" alt="Puting GIF">
+      <img src="th.jpeg" alt="TH">
     </div>
-  
-    <script>
-      // Wait for the window to load
-      window.onload = function() {
-        const audio = document.getElementById('background-audio');
-  
-        // Play audio on user interaction
-        document.body.addEventListener('click', function() {
-          audio.play();
-        });
-      };
-    </script>
-
-    <!-- Blood Animation -->
-    <div class="blood"></div>
   </div>
+
+  <!-- Optional: Add background audio (auto play with user interaction) -->
+  <audio id="background-audio" loop>
+    <source src="Kantara - kantara BGM.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Wait for the window to load
+    window.onload = function() {
+      const audio = document.getElementById('background-audio');
+
+      // Play audio on user interaction
+      document.body.addEventListener('click', function() {
+        audio.play();
+      });
+    };
+  </script>
+
 </body>
 </html>
