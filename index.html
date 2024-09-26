@@ -253,7 +253,28 @@
 
     <!-- Knife Animations -->
     <img src="KNIFE.jpeg" alt="Knife" class="knife">
-    <img src="KNIFE.jpeg" alt="Knife Left" class="knife-left">
+    <img src="KNIFE.jpeg" alt="Knife Left" class="knife-left"> 
+    <audio id="background-audio" loop>
+        <source src="Kantara - kantara BGM.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  
+    <script>
+      // Wait for the window to load
+      window.onload = function() {
+        const audio = document.getElementById('background-audio');
+  
+        // Play audio on user interaction
+        document.body.addEventListener('click', function() {
+          audio.play();
+        });
+        
+        // Optionally play audio without interaction (may be blocked in some browsers)
+        // audio.play();
+      };
+    </script>>
+    
 
     <!-- Blood Animation -->
     <div class="blood"></div>
