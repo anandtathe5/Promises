@@ -78,8 +78,9 @@
     .knife {
       position: absolute;
       top: -60px;
-      right: 10px;
-      width: 80px;
+      right: 60px;
+      width: 100px;
+      height: 200px; /* Increase height */
       animation: knife-drop 6s infinite alternate;
       z-index: 3;
     }
@@ -88,15 +89,16 @@
     .knife-left {
       position: absolute;
       top: 200px;
-      left: -60px;
+      left: 100px;
       width: 80px;
+      height: 160px; /* Increase height */
       transform: rotate(-45deg);
       animation: knife-float-left 8s infinite alternate;
     }
 
     .blood {
       position: absolute;
-      bottom: -100px;
+      top: -150px; /* Start from the top */
       width: 100%;
       height: 150px;
       background: radial-gradient(circle, crimson, darkred);
@@ -116,6 +118,7 @@
 
       .knife, .knife-left {
         width: 50px;
+        height: 100px; /* Adjust height for responsiveness */
       }
 
       .horror-character {
@@ -140,6 +143,7 @@
 
       .knife, .knife-left {
         width: 40px;
+        height: 80px; /* Adjust height for responsiveness */
       }
 
       .horror-character {
@@ -252,8 +256,8 @@
     <p class="goal">Success is My Only Destination</p>
 
     <!-- Knife Animations -->
-    <img src="KNIFE.jpeg" alt="Knife" class="knife">
-    <img src="KNIFE.jpeg" alt="Knife Left" class="knife-left"> 
+    <img src="blood.jpeg" alt="Knife" class="knife">
+    <img src="focus.jpeg" alt="Knife Left" class="knife-left"> 
     <audio id="background-audio" loop>
         <source src="Kantara - kantara BGM.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -269,12 +273,8 @@
         document.body.addEventListener('click', function() {
           audio.play();
         });
-        
-        // Optionally play audio without interaction (may be blocked in some browsers)
-        // audio.play();
       };
-    </script>>
-    
+    </script>
 
     <!-- Blood Animation -->
     <div class="blood"></div>
