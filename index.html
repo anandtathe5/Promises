@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deadly Promises: A New Life</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0b0b0b;
+      color: #fff;
+      font-family: 'Creepster', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background: url('https://cdn.pixabay.com/photo/2016/11/29/07/07/blood-1867619_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 30px;
+      border: 4px solid #ff3333;
+      background-color: rgba(20, 20, 20, 0.95);
+      border-radius: 15px;
+      position: relative;
+      box-shadow: 0px 0px 50px 10px #ff1a1a;
+      animation: flicker 1.5s infinite alternate;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff1a1a;
+      margin-bottom: 30px;
+      text-shadow: 4px 4px 10px black;
+      animation: text-flicker 2s infinite alternate;
+    }
+
+    .goal {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+      color: #ff9999;
+      text-transform: uppercase;
+      font-weight: bold;
+      animation: blood-drip 5s infinite alternate;
+    }
+
+    .goal:before {
+      content: "☠ ";
+      color: #ff3333;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    /* Adding a dangerous horror character */
+    .horror-character {
+      position: absolute;
+      width: 100px;
+      height: 200px;
+      background: url('https://cdn.pixabay.com/photo/2019/06/29/17/24/horror-4308975_1280.png') no-repeat;
+      background-size: contain;
+      top: 10px;
+      left: 10px;
+      animation: character-float 5s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    /* Knife Animation */
+    .knife {
+      position: absolute;
+      top: -60px;
+      right: 10px;
+      width: 80px;
+      animation: knife-drop 6s infinite alternate;
+      z-index: 3;
+    }
+
+    /* More knife appearances across the page */
+    .knife-left {
+      position: absolute;
+      top: 200px;
+      left: -60px;
+      width: 80px;
+      transform: rotate(-45deg);
+      animation: knife-float-left 8s infinite alternate;
+    }
+
+    .blood {
+      position: absolute;
+      bottom: -100px;
+      width: 100%;
+      height: 150px;
+      background: radial-gradient(circle, crimson, darkred);
+      animation: blood-flow 3s infinite;
+      z-index: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .goal {
+        font-size: 1rem;
+      }
+
+      .knife, .knife-left {
+        width: 50px;
+      }
+
+      .horror-character {
+        width: 70px;
+        height: 140px;
+      }
+
+      .container {
+        max-width: 90%;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .goal {
+        font-size: 0.9rem;
+      }
+
+      .knife, .knife-left {
+        width: 40px;
+      }
+
+      .horror-character {
+        width: 50px;
+        height: 100px;
+      }
+    }
+
+    @keyframes blood-drip {
+      0% {
+        color: #ff6666;
+      }
+      100% {
+        color: #ff0000;
+      }
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes text-flicker {
+      0%, 100% {
+        color: #ff1a1a;
+        text-shadow: 2px 2px 10px black;
+      }
+      50% {
+        color: #ff4d4d;
+        text-shadow: 2px 2px 20px red;
+      }
+    }
+
+    @keyframes knife-drop {
+      0% {
+        top: -60px;
+        right: 10px;
+        transform: rotate(45deg);
+      }
+      50% {
+        top: 150px;
+        right: 50px;
+        transform: rotate(90deg);
+      }
+      100% {
+        top: -60px;
+        right: 10px;
+        transform: rotate(45deg);
+      }
+    }
+
+    @keyframes knife-float-left {
+      0% {
+        top: 200px;
+        left: -60px;
+      }
+      50% {
+        top: 100px;
+        left: 20px;
+      }
+      100% {
+        top: 200px;
+        left: -60px;
+      }
+    }
+
+    @keyframes blood-flow {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(20px);
+      }
+    }
+
+    @keyframes character-float {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(20px);
+      }
+    }
+
+  </style>
+
+  <!-- Link to Google Fonts for Creepster -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Horror Character with Knife -->
+  <div class="horror-character"></div>
+  
+  <div class="container">
+    <h1>Deadly Promises</h1>
+    
+    <p class="goal">I Will Forget My Dirty College and School Life</p>
+    <p class="goal">Those People Are Gone, They Don't Exist Anymore</p>
+    <p class="goal">No Looking Back - My Future is What Matters</p>
+    <p class="goal">Friends Are Temporary - My Goals Are Permanent</p>
+    <p class="goal">I Promise To Cut Off All Distractions</p>
+    <p class="goal">No Social Media, No Useless Conversations</p>
+    <p class="goal">Forget 99210, It No Longer Exists</p>
+    <p class="goal">I Will Focus Only On My Targets</p>
+    <p class="goal">I Am Becoming the Person I Was Meant to Be</p>
+    <p class="goal">Success is My Only Destination</p>
+
+    <!-- Knife Animations -->
+    <img src="KNIFE.jpeg" alt="Knife" class="knife">
+    <img src="KNIFE.jpeg" alt="Knife Left" class="knife-left">
+
+    <!-- Blood Animation -->
+    <div class="blood"></div>
+  </div>
+</body>
+</html>
